@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/WEB-INF/templates/default.xhtml">
+    <ui:define name="content">
+        <div class="page-header">
+            <h2>Customers</h2>
+        </div>
+
+        <h3>Name: #{customerService.customerName}</h3>
+
+        <h3>Money: $ #{customerService.customerTokens}</h3>
+
+        <h:dataTable value="#{hello.userList}" var="user" border="1" styleClass="table table-hover table-striped">
+
+            <f:facet name="header">
+                <h:outputText value="Users" />
+            </f:facet>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="First name" />
+                </f:facet>
+                <h:outputText value="#{user.id}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Last name" />
+                </f:facet>
+                <h:outputText value="#{user.type}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Email" />
+                </f:facet>
+                <h:outputText value="#{user.number}" />
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Age" />
+                </f:facet>
+                <h:outputText value="#{user.price}" />
+            </h:column>
+
+            <f:facet name="footer">
+                <h:outputText value="User count: " />
+                <h:outputText value="#{hello.userCount}" />
+            </f:facet>
+
+        </h:dataTable>
+
+    </ui:define>
+</ui:composition>
+

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>#{app.applicationName}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <h:outputStylesheet name="/webjars/bootstrap/3.2.0/css/bootstrap.css"/>
+    <h:outputStylesheet name="/webjars/bootstrap/3.2.0/css/bootstrap-theme.css"/>
+</h:head>
+
+<h:body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <h:link outcome="/index" class="navbar-brand" value="Token GYM"/>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="#{view.viewId =='/views/customer.xhtml' ? 'active':''}"><h:link
+                            outcome="/views/customer" value="Customer"/></li>
+                    <li class="#{view.viewId =='/views/spinningclass.xhtml' ? 'active':''}"><h:link
+                            outcome="/views/spinningclass" value="Spinning class"/></li>
+                    <!--<li class="#{view.viewId =='/views/book.xhtml' ? 'active':''}"><h:link
+                            outcome="/views/book" value="Book tickets"/></li>-->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <ui:insert name="content">
+            [Template content will be inserted here]
+        </ui:insert>
+        <hr/>
+
+        <div class="page-header">
+            <h2>Customers</h2>
+        </div>
+
+        <h3>Name: #{customerService.customerName}</h3>
+
+        <h3>Money: $ #{customerService.customerTokens}</h3>
+
+        <f:view>
+            <h:outputLabel value="Hello, world"/>
+        </f:view>
+
+
+        <footer>
+            <p class="text-muted">&copy; Company 2019</p>
+        </footer>
+
+    </div>
+
+    <h:outputScript name="/webjars/jquery/1.11.0/jquery.js"/>
+    <h:outputScript name="/webjars/bootstrap/3.2.0/js/bootstrap.js"/>
+</h:body>
+
+</html>
